@@ -36,7 +36,6 @@ Those modules and our model will be introduced in the following article. **Multi
     4.3    Future Work <br>
 5.    Reference <br>
 
-
 ## 1. Introduction
 ### 1.1 Background and Motivation
 To the best of our knowledge, there are few published papers discussing this kind of topic utilizing operations research techniques on NLP problems. Therefore, we are interested in how these directions would evolve. There are tons of tasks that may be defined as NLP problems, we chose "**Keyword Extraction** on course KG" as our topic because <br>
@@ -177,13 +176,18 @@ To simplify the problem, we have selected three courses, and gathered the names 
 |  2 | Web Application Programming                         | this course covers basic concepts and applications such as web design, back-end database, and web page conversion into mobile app, such as html5, css3, javascript, jquery, jquery mobile, sql, nosql, and cordova. throughout the course, by using a certain field as the theme and using projectManagement methods to create projects with the goal of solving real problems, the purpose of learning is further achieved and students' learning effectiveness is improved. through group discussions and project reports, students can share their problem-solving processes and reflections, thereby improving the learning effect.                                                                                                                                                                                                                       |
 ### 3.2 Result
 
-**Result when only choose words that can connect different documents**
-<img src="cos_with_t.png" alt="image" width="850">
-<img src="eu_with_t.png" alt="image" width="850">
+Here are our results. The red dots represent courses; blue dots represent critical words extracted from course overviews, chosen using our OR model. Also, in this visualization, we have set the weights of the three objectives as equal. We experimented with both cosine and Euclidean distances as similarity measures separately, resulting in identical outcomes as shown in the accompanying image.
 
-**Result there is no such limitation for chosen words**
+**Result when only choose words that can connect different documents**
+
+Upon closer inspection, we observed that the selected words may not be sufficiently representative or specific. This discrepancy led us to analyze the data further, revealing that the collected words are common and lack representativeness:
+> systemat, student, learn, engin, solv, process, real, system, method, problem, manag, manufactur, applic, knowledg, appli, use, improv, cours, inform, domain, integr, effect, design
+
+<img src="cos_with_t.png" alt="image" width="850">
+
+**Result when there is no only-connecting-words limitation for chosen words**
+
 <img src="cos_no_t.png" alt="image" width="850">
-<img src="eu_no_t.png" alt="image" width="850">
 
 ## 4. Conclusion
 
@@ -212,3 +216,5 @@ To summarize our method, we utilize OR method to build KG in the NLP problem
 
 **n-gram module**
 Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
+
+
