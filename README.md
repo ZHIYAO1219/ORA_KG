@@ -1,4 +1,4 @@
-![image](https://github.com/ZHIYAO1219/ORA_KG/assets/92580226/97ef3c7a-8f66-4681-a633-77f12f512dd7)![image](https://github.com/ZHIYAO1219/ORA_KG/assets/92580226/a943bfe6-7c8e-472a-9ca7-0c5e0eee2203)# Textual Knowledge Graph Construction based on Operations Research
+# Textual Knowledge Graph Construction based on Operations Research
 **`December 26, 2023 / by Yu-Shin, Hu and Zhi-Yao, Hsu`**
 
 This is a project exploring the potential of applying Operations Research (OR) techniques to address Natural Language Processing (NLP) problems. The research objective is focused on 'shrinking the Knowledge Graph (KG) of courses and summarizing course keywords through Multi-Objective Optimization.'
