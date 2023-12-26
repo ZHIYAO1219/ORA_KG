@@ -27,10 +27,9 @@ Those modules and our model will be introduced in the following article. **Multi
     2.3    Solver <br>
     2.4    Model Formulation <br>
     2.5    Multi-Objective Optimization <br>
-3.    Case Study, Modules and Analysis Result <br>
+3.    Case Study and Analysis Result <br>
     3.1    Case Study: Links between NTU IM Courses <br>
-    3.2    Modules <br>
-    3.3    Result <br>
+    3.2    Result <br>
 4.    Conclusion <br>
     4.1    Comments and Insights <br>
     4.2    Limitations <br>
@@ -162,7 +161,7 @@ It aims to reduce the digression between objective functions and their ideal sol
 
 Note that in this case, we normalize the three objectives, making the Weighted-Sum Method and Lp-Metric Method essentially equivalent.
 
-## 3. Case Study, Modules and Analysis Result
+## 3. Case Study and Analysis Result
 
 ### 3.1 Case Study: Links between NTU IM Courses
 We conducted a case study on the links between courses at National Taiwan University (NTU). We identified certain existing limitations in the course overviews, including a scarcity of prerequisite relationships between courses. This lack of detailed information poses challenges for students seeking to study across different fields and disciplines.
@@ -176,16 +175,7 @@ To simplify the problem, we have selected three courses, and gathered the names 
 |  0 | Manufacturing Data Science                          | mds course supports students learning how to apply artificialIntelligence (ai), machineLearning, dataScience (ds) techniques to improve the effectiveness and efficiency of the manufacturing systems. mds integrates the knowledge domains of the information, engineering, and management. encourage students to solve the real problem systematically using the design of analytics, from descriptive, diagnostic, predictive, prescriptive to automating, for successfully enhancing decision quality.                                                                                                                                                                                                                                                                                                                                                    |
 |  1 | Operations Research Applications and Implementation | this course will provide students to learn the methodologies of operationsResearch and its applications to the real problem. the models include deterministic models (such as linearProgramming, multi-criteria decisionAnalysis, data envelopment analysis, etc.) and stochasticModels (such as bayesian decisionAnalysis, stochasticProgramming, markovDecision process, etc.). the course integrates the knowledge domains of the management and engineering, applied in capacity planning, facility layout, supply chain, manufacturing scheduling, performance evaluation, vendor selection and order allocation, bin-packing, financial investment, etc. we develop the implementation capability of the information system in practice. finally we should know how to solve the real problem systematically using optimization or statistical methods. |
 |  2 | Web Application Programming                         | this course covers basic concepts and applications such as web design, back-end database, and web page conversion into mobile app, such as html5, css3, javascript, jquery, jquery mobile, sql, nosql, and cordova. throughout the course, by using a certain field as the theme and using projectManagement methods to create projects with the goal of solving real problems, the purpose of learning is further achieved and students' learning effectiveness is improved. through group discussions and project reports, students can share their problem-solving processes and reflections, thereby improving the learning effect.                                                                                                                                                                                                                       |
-
-### 3.2 Modules
-**crawler module**
-
-**preprocessing module**
-
-**n-gram module**
-Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
-
-### 3.3 Result
+### 3.2 Result
 
 **Result when only choose words that can connect different documents**
 <img src="cos_with_t.png" alt="image" width="850">
@@ -214,3 +204,11 @@ To summarize our method, we utilize OR method to build KG in the NLP problem
 -    [Text correlation calculation based on passage-level event representation](https://www.researchgate.net/publication/343101905_Text_correlation_calculation_based_on_passage-level_event_representation)
 -    [Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph](https://aclanthology.org/C18-1229/)
 -    [Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity](https://zenodo.org/records/4437871#.YB0oa-gzaUk)
+
+
+**crawler module**
+
+**preprocessing module**
+
+**n-gram module**
+Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
