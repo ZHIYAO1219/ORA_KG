@@ -71,8 +71,8 @@ The document preprocessing techniques are utilized first to simplify texts and h
 
 ### 2.3 Solver:
 We opted for the Gurobi solver, acknowledging two limitations that need to be addressed during the model formulation:
--   It can only solve quadratic programming.
--   The denominator cannot be a variable.
+-   Gurobi can only solve quadratic or lower-degree programming.
+-   The denominator should be a constant, not a variable.
 
 ### 2.4 Model formulation
 **Sets and indices**
@@ -105,7 +105,9 @@ $$TF_{ij} = \frac{a_{ij} x_{i}}{\sum_{i' \in I}{a_{i'j} x_{i'}}}$$
 $$IDF_{i} = \ln \frac{|j|}{1 + \sum_{j' \in J}{b_{ij'} x_{i}}}$$
 $$TFIDF_{ij} = \frac{a_{ij} x_{i}}{\sum_{i' \in I}{a_{i'j} x_{i'}}} \ln \frac{|j|}{1 + \sum_{j' \in J}{b_{ij'} x_{i}}}$$
 TF stands for term frequency, indicating the frequency with which a given word $i$ appears in document $j$. IDF, or inverse document frequency, represents the frequency with which a word $i$ appears in the entire collection of documents. A word with a high TF is deemed more important in a specific document, while a high IDF suggests that the word may be too common and less significant. Therefore, TF-IDF is calculated by multiplying these two indices to strike a balance, providing a measure of a word's importance across the entire set of documents.
+
 -   $obj^{wordnum}$: minimize the number of chosen words, to minimize the nodes that need to be compared with the query to speed up the information-searching process.
+  
 -   $obj^{sim}$: minimize the sum of word similarities, to maximize the information value.
     -    Cosine similarity: $$s_{ik} = {similarity}(\mathbf{i}, \mathbf{k}) = \frac{\mathbf{i} \cdot \mathbf{k}}{\|\mathbf{i}\| \cdot \|\mathbf{k}\|}$$
     -    Minkowski distance: $$s_{ik} = D(\mathbf{i}, \mathbf{k}) = \left( \sum_{m} \left| i_m - k_m \right|^p \right)^{\frac{1}{p}}$$
@@ -126,11 +128,19 @@ For similarity, here we use the cosine similarity and the Minkowski distance, we
     -   $idf_{i} = \ln (B_{i}), \forall i \in I$
     -   $X_{ik} = x_{i} x_{k}, \forall i \in I, k \in I, i \neq k$
 
-**Multi-objective optimization**
--   Weights of the objectives: $w^{tfidf}$, $w^{wordnum}$, $w^{sim}$, with
-$w^{tfidf} + w^{wordnum} + w^{sim} =1$
--   Weighted-Sum method
+### 2.5 Multi-objective optimization
+Several methods for solving multi-objective problems have been explored in past literature. In this study, we adopt the 'Weighted-Sum Method' to integrate our three objectives and approach the problem as a single-objective problem.
+
+-   Weights of the objectives are $w^{tfidf}$, $w^{wordnum}$, $w^{sim}$, with $w^{tfidf} + w^{wordnum} + w^{sim} =1$
+-   In the subsequent examples, the three weights are configured to be 1/3 each.
+
+**Weighted-Sum Method**
     $$w^{tfidf} \frac{obj^{tfidf}}{obj^{tfidf, max}} + w^{wordnum} \frac{obj^{wordnum}}{obj^{wordnum, max}} + w^{sim} \frac{obj^{sim}}{obj^{sim, max}}$$
+
+**Lp-Metric Method**
+    $$w^{tfidf} \frac{obj^{tfidf}-obj^{tfidf, max}}{obj^{tfidf, max}} + w^{wordnum} \frac{obj^{wordnum}-obj^{wordnum, max}}{obj^{wordnum, max}} + w^{sim} \frac{obj^{sim}-obj^{sim, max}}{obj^{sim, max}}$$
+
+Note that in this case, we normalize the three objectives, making the Weighted-Sum Method and Lp-Metric Method essentially equivalent.
 
 ## 3. Data collention, prerocessing and Analysis Result
 ### 3.1. crawler module 
@@ -141,7 +151,7 @@ $w^{tfidf} + w^{wordnum} + w^{sim} =1$
 ## 5. Conclusion
 
 ## 6. Reference
-[Disaster Relief Logistics with Contactless Delivery Policy](https://github.com/Nana2929/ORA-modrl)
+[Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
 
 
 
