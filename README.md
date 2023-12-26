@@ -17,24 +17,25 @@ As we can see, there are lots of redundent words, such as 'student', and 'learn'
 Those modules and our model will be introduced in the following article. **Multi-Objective Optimization model** will be presented in Chapter 2. The supplementary function, such as **crawler module**, **preprocessing module**, **n-gram module**, will be demonstrated in Chapter 3.
 
 ## Table of Contents
-1.    Introduction <br>
-    1.1    [Background and Motivation](#background-and-motivation) <br>
-    1.2    Problem Definition <br>
-2.    Methodology <br>
-    2.1    Research Framework <br>
-    2.2    Document Pre-Processing <br>
-    2.3    Solver <br>
-    2.4    Model Formulation <br>
-    2.5    Multi-Objective Optimization <br>
-3.    Case Study, Modules and Analysis Result <br>
-    3.1    Case Study: Links between NTU IM Courses <br>
-    3.2    Modules <br>
-    3.3    Result <br>
-4.    Conclusion <br>
-    4.1    Comments and Insights <br>
-    4.2    Limitations <br>
-    4.3    Future Work <br>
-5.    Reference <br>
+1. [Introduction](#introduction) <br>
+    1.1 [Background and Motivation](#background-and-motivation) <br>
+    1.2 [Problem Definition](#problem-definition) <br>
+2. [Methodology](#methodology) <br>
+    2.1 [Research Framework](#research-framework) <br>
+    2.2 [Document Pre-Processing](#document-pre-processing) <br>
+    2.3 [Solver](#solver) <br>
+    2.4 [Model Formulation](#model-formulation) <br>
+    2.5 [Multi-Objective Optimization](#multi-objective-optimization) <br>
+3. [Case Study, Modules and Analysis Result](#case-study-modules-and-analysis-result) <br>
+    3.1 [Case Study: Links between NTU IM Courses](#case-study-links-between-ntu-im-courses) <br>
+    3.2 [Modules](#modules) <br>
+    3.3 [Result](#result) <br>
+4. [Conclusion](#conclusion) <br>
+    4.1 [Comments and Insights](#comments-and-insights) <br>
+    4.2 [Limitations](#limitations) <br>
+    4.3 [Future Work](#future-work) <br>
+5. [Reference](#reference) <br>
+
 
 ## 1. Introduction
 ### 1.1 Background and Motivation
