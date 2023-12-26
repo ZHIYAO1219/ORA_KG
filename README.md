@@ -17,24 +17,24 @@ As we can see, there are lots of redundent words, such as 'student', and 'learn'
 Those modules and our model will be introduced in the following article. **Multi-Objective Optimization model** will be presented in Chapter 2. The supplementary function, such as **crawler module**, **preprocessing module**, **n-gram module**, will be demonstrated in Chapter 3.
 
 ## Table of Contents
-1. [Introduction](#1-introduction) <br>
-    1.1 [Background and Motivation](#11-background-and-motivation) <br>
-    1.2 [Problem Definition](#12-problem-definition) <br>
-2. [Methodology](#2-methodology) <br>
-    2.1 [Research Framework](#21-research-framework) <br>
-    2.2 [Document Pre-Processing](#22-document-pre-processing) <br>
-    2.3 [Solver](#23-solver) <br>
-    2.4 [Model Formulation](#24-model-formulation) <br>
-    2.5 [Multi-Objective Optimization](#25-multi-objective-optimization) <br>
-3. [Case Study, Modules and Analysis Result](#3-case-study-modules-and-analysis-result) <br>
-    3.1 [Case Study: Links between NTU IM Courses](#31-case-study-links-between-ntu-im-courses) <br>
-    3.2 [Modules](#32-modules) <br>
-    3.3 [Result](#33-result) <br>
-4. [Conclusion](#4-conclusion) <br>
-    4.1 [Comments and Insights](#41-comments-and-insights) <br>
-    4.2 [Limitations](#42-limitations) <br>
-    4.3 [Future Work](#43-future-work) <br>
-5. [Reference](#5-reference) <br>
+1.    Introduction <br>
+    1.1    Background and Motivation <br>
+    1.2    Problem Definition <br>
+2.    Methodology <br>
+    2.1    Research Framework <br>
+    2.2    Document Pre-Processing <br>
+    2.3    Solver <br>
+    2.4    Model Formulation <br>
+    2.5    Multi-Objective Optimization <br>
+3.    Case Study, Modules and Analysis Result <br>
+    3.1    Case Study: Links between NTU IM Courses <br>
+    3.2    Modules <br>
+    3.3    Result <br>
+4.    Conclusion <br>
+    4.1    Comments and Insights <br>
+    4.2    Limitations <br>
+    4.3    Future Work <br>
+5.    Reference <br>
 
 
 ## 1. Introduction
