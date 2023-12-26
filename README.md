@@ -35,15 +35,47 @@ This study proposes a Multi-Objective Optimization model to maximize the informa
 ### 2.1 Research framework
 Our research framework involves several key steps. Initially, we collect documents, including their titles and contents, through web crawling. Subsequently, we preprocess these documents to prepare them for analysis, and then feed the relevant information into our Multi-Objective Optimization model. The final output of our framework consists of critical words extracted from the documents, which are then used to construct a comprehensive knowledge graph. In essence, our project leverages OR for information extraction, ultimately contributing to the construction of a knowledge graph.
 
-<img src="framework.png" alt="image" width="500">
+<img src="framework.png" alt="image" width="600">
+
+Note that the collected documents should include the titles and contents. Titles and keywords of contents represent the 'Entity' of a knowledge graph.
+
 <img src="example_of_elements.png" alt="image" width="300">
 
-### 2.2 Solver:
+### 2.2 Document pre-processing
+The document preprocessing techniques are utilized first to simplify texts and help reduce the modeling complexity, which can further improve the modeling efficiency and reduce noise.
+
+**Translate into English**
+-    Description: all the documents are firstly translated into English form.
+-    `from googletrans import Translator`
+`translator = Translator()`
+
+**Stemming**
+-    Description: we convert the words to the same basic form, in order to reduce vocabulary diversity.
+-    `import nltk`
+`stemmer = stem.PorterStemmer()`
+
+**Remove stopwords**
+-    Description: we remove stopwords such as Preposition, Pronouns, or Auxiliary Verbs, etc.
+-    `import nltk`
+`nltk.download('stopwords')`
+`stop_words = set(stopwords.words('english'))`
+
+**Remove punctuation**
+-    `import string`
+`string.punctuation`
+
+**Compute word vector**
+-    Description: all the words are converted into vector space using Word2Vector, which is a Word Embedding method and helps us consider the semantic representation and contextual relationships.
+-    `from gensim.models import Word2Vec`
+`model = Word2Vec(....)`
+
+### 2.3 Solver:
 We opted for the Gurobi solver, acknowledging two limitations that need to be addressed during the model formulation:
 -   It can only solve quadratic programming.
 -   The denominator cannot be a variable.
 
-### 2.3 Model formulation**Sets and indices**
+### 2.4 Model formulation
+**Sets and indices**
 -   $I$: unique words
 -   $i$ or $k$: a certain word
 -   $\mathbf{i}$ or $\mathbf{k}$: a certain word vector
