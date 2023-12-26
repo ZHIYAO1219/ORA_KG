@@ -15,7 +15,7 @@ Next, leveraging our **preprocessing module**, we can tokenize the introduction 
 [1]How we tokenize words like 'operation research' other than single words will be explained in **n-gram module**.<br>
 
 As we can see, there are lots of redundent words, such as 'student', and 'learn', if we are discussing **"keywords"** of a course. We introduce our **Multi-Objective Optimization model** to explore another approach to replace traditional **Keyword Extraction** methods.<br>
-Those modules and our model will be introduced in the following article. **Multi-Objective Optimization model** will be presented in Chapter 2. The supplementary function, such as **crawler module**, **preprocessing module**, **n-gram module**, will be demonstrated in Chapter 3.
+Those modules and our model will be introduced in Chapter 2.
 
 ## Table of Contents
 1.    Introduction <br>
@@ -56,6 +56,20 @@ Note that the collected documents should include the titles and contents, which,
 <img src="example_of_elements.png" alt="image" width="300">
 
 ### 2.2 Document Pre-Processing
+#### 2.2.1 Supplementary module 
+##### 2.2.1.1crawler module
+In our project, we have to obtain all of the course data from the website first.<br>
+It is a tool developed with selenium, an web browser automation tool that can help us interact with website by code, and beautiful soup, a classic crawling tool that is intuitive and relatively easy to use. 
+In Crawler.ipynb you can input a desirable department ID to our function crawlByDepId(depId) and it will give you a csv file with all of the classes' "ClassId", "ClassName" and "ClassSummary"<br>
+
+##### 2.2.1.2 n-gram module
+Sometimes, there words like 'machine learning' or 'data science' only convey their intended meaning when combined. Otherwise, they fail to communicate the true concept.
+We have two basic way to solve this problem. 
+1. Using n-gram method, which help you find the frequency ranking of n consecutive words in the text you are interested in. For example, after preprocessing, we put text from a blog of data science to n-gram function. Then, we get ['artificial intelligence', 'machine learning', 'big data', 'deep learning', ...] which can alse be seem as the most popular word in this topic.
+2. Asking chatGPT which are the most popular world in certain topic. For example, we ask chatGPT: "Give me top 24 keywords in the field Operations research." and we get ['Linear Programming', 'Inventory Management', 'Stochastic Processes', 'Decision Analysis'...].<br><br>
+We put our 2-gram example in dictionary.pickle. With this dictionary we can tell which words pair should be together rather than be seperated arbitrary.
+
+#### 2.2.2 Document Preprocessing
 The document preprocessing techniques are utilized first to simplify texts and help reduce the modeling complexity, which can further improve the modeling efficiency and reduce noise.
 
 **Translate into English**
