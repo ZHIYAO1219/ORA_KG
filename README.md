@@ -213,15 +213,15 @@ Here are the results without limitations on chosen words, indicating that we are
 
 ### 4.1 Comments and Insights
 -    To give a summary of this project, the OR model is used to build KG in the NLP problem.
--    An unexpected finding is that when altering the similarity calculation method, whether using cosine similarity or Euclidean distance, the model produced identical results.
+-    An unexpected finding is that when altering the similarity calculation method, whether using cosine similarity or Euclidean distance, the model produced identical results. It becomes evident that there is more to explore in our understanding of the application of text and word indicators in the realm of OR.
+-    The challenge in successfully establishing a robust knowledge graph lies in the insufficient presence of connecting words between courses, and their lack of representativeness. Hence, focusing on information extraction of representative connecting words between documents is recommended for future development.
 
 ### 4.2 Limitations
 -    Size limit of the Gurobi solver: this method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
--    Absence of fixed solution: we've observed that there is no fixed solution in our approach. Gurobi may find local optimal solutions, raising concerns about achieving the global optimum.
 -    A limited number of connecting words across different courses: there is insufficient diversity in connecting words due to the data size limit. As a result, the objective of establishing a comprehensive knowledge map between courses cannot be fully realized.
 
 ### 4.3 Future Work
--    Perform clustering of similar words: cluster the similar words can help reduce the complexity of the model, so that our methodology can be utilized to build a larger and more comprehensive knowledge graph.
+-    Perform clustering of similar words: clustering similar words is beneficial in reducing the model's complexity while enhancing connections between documents. This improvement holds the potential to extend the applicability of our methodology, enabling the construction of a larger and more comprehensive knowledge graph.
 -    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, so more experiments are needed.
 
 ## 5. Reference
