@@ -12,7 +12,7 @@ Next, leveraging our **preprocessing module**, we can tokenize the introduction 
 [1]How we tokenize words like 'operation research' other than single words will be explained in **n-gram module**.<br>
 
 As we can see, there are lots of redundent words, such as 'student', and 'learn', if we are discussing **"keywords"** of a course. We introduce our **Multi-Objective Optimization model** to explore another approach to replace traditional **Keyword Extraction** methods.<br>
-Those modules and our model will be introduced in the following article. 
+Those modules and our model will be introduced in the following article. **Multi-Objective Optimization model** will be presented in Chapter 2. The supplementary function, such as **crawler module**, **preprocessing module**, **n-gram module**, will be demonstrated in Chapter 3.
 
 ## Table of Contents
 1. Background and Motivation
@@ -95,6 +95,10 @@ This study proposes a Multi-Objective Optimization model to maximize the informa
 $w^{tfidf} + w^{wordnum} + w^{sim} =1$
 -   Weighted-Sum method
     $$w^{tfidf} \frac{obj^{tfidf}}{obj^{tfidf, max}} + w^{wordnum} \frac{obj^{wordnum}}{obj^{wordnum, max}} + w^{sim} \frac{obj^{sim}}{obj^{sim, max}}$$
+
+## 3. Data collention and Analysis Result
+
+
 
 
 
