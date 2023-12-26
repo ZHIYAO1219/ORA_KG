@@ -136,9 +136,13 @@ Several methods for solving multi-objective problems have been explored in past 
 -   In the subsequent examples, the three weights are configured to be 1/3 each.
 
 **Weighted-Sum Method**
+
+Its goal is to minimize the weighted sum of all objectives.
     $$w^{tfidf} \frac{obj^{tfidf}}{obj^{tfidf, max}} + w^{wordnum} \frac{obj^{wordnum}}{obj^{wordnum, max}} + w^{sim} \frac{obj^{sim}}{obj^{sim, max}}$$
 
 **Lp-Metric Method**
+
+It aims to reduce the digression between objective functions and their ideal solution.
     $$w^{tfidf} \frac{obj^{tfidf}-obj^{tfidf, max}}{obj^{tfidf, max}} + w^{wordnum} \frac{obj^{wordnum}-obj^{wordnum, max}}{obj^{wordnum, max}} + w^{sim} \frac{obj^{sim}-obj^{sim, max}}{obj^{sim, max}}$$
 
 Note that in this case, we normalize the three objectives, making the Weighted-Sum Method and Lp-Metric Method essentially equivalent.
