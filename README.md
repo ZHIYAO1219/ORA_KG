@@ -199,13 +199,7 @@ To summarize our method, we utilize OR method to build KG in the NLP problem
 -    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, and more experiments are needed.
 
 ## 5. Reference
-[Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
-[Text correlation calculation based on passage-level event representation](https://www.researchgate.net/publication/343101905_Text_correlation_calculation_based_on_passage-level_event_representation)
-[Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph](https://aclanthology.org/C18-1229/)
-[Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity](https://zenodo.org/records/4437871#.YB0oa-gzaUk)
-
-
-
-
-
-
+-    [Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
+-    [Text correlation calculation based on passage-level event representation](https://www.researchgate.net/publication/343101905_Text_correlation_calculation_based_on_passage-level_event_representation)
+-    [Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph](https://aclanthology.org/C18-1229/)
+-    [Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity](https://zenodo.org/records/4437871#.YB0oa-gzaUk)
