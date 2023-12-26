@@ -15,7 +15,6 @@ Next, leveraging our **preprocessing module**, we can tokenize the introduction 
 [1]How we tokenize words like 'operation research' other than single words will be explained in **n-gram module**.<br>
 
 As we can see, there are lots of redundent words, such as 'student', and 'learn', if we are discussing **"keywords"** of a course. We introduce our **Multi-Objective Optimization model** to explore another approach to replace traditional **Keyword Extraction** methods.<br>
-Those modules and our model will be introduced in Chapter 2.
 
 ## Table of Contents
 1.    Introduction <br>
