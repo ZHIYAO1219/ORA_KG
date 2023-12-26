@@ -1,4 +1,4 @@
-# Textual Knowledge Graph Construction based on Operations Research
+![image](https://github.com/ZHIYAO1219/ORA_KG/assets/92580226/97ef3c7a-8f66-4681-a633-77f12f512dd7)![image](https://github.com/ZHIYAO1219/ORA_KG/assets/92580226/a943bfe6-7c8e-472a-9ca7-0c5e0eee2203)# Textual Knowledge Graph Construction based on Operations Research
 **`December 26, 2023 / by Yu-Shin, Hu and Zhi-Yao, Hsu`**
 
 This is a project exploring the potential of applying Operations Research (OR) techniques to address Natural Language Processing (NLP) problems. The research objective is focused on 'shrinking the Knowledge Graph (KG) of courses and summarizing course keywords through Multi-Objective Optimization.'
@@ -17,13 +17,26 @@ As we can see, there are lots of redundent words, such as 'student', and 'learn'
 Those modules and our model will be introduced in the following article. **Multi-Objective Optimization model** will be presented in Chapter 2. The supplementary function, such as **crawler module**, **preprocessing module**, **n-gram module**, will be demonstrated in Chapter 3.
 
 ## Table of Contents
-1. Introduction
-2. Methodology
-3. Case study, Modules and Analysis Result
-4. Conclusion
-5. Reference
+1.    Introduction <br>
+    1.1    Background and Motivation <br>
+    1.2    Problem Definition <br>
+2.    Methodology <br>
+    2.1    Research Framework <br>
+    2.2    Document Pre-Processing <br>
+    2.3    Solver <br>
+    2.4    Model Formulation <br>
+    2.5    Multi-Objective Optimization <br>
+3.    Case Study, Modules and Analysis Result <br>
+    3.1    Case Study: Links between NTU IM Courses <br>
+    3.2    Modules <br>
+    3.3    Result <br>
+4.    Conclusion <br>
+    4.1    Comments and Insights <br>
+    4.2    Limitations <br>
+    4.3    Future Work <br>
+5.    Reference <br>
 
-## 1. Background and Motivation
+## 1. Introduction
 ### 1.1 Background and Motivation
 To the best of our knowledge, there are few published papers discussing this kind of topic utilizing operations research techniques on NLP problems. Therefore, we are interested in how these directions would evolve. There are tons of tasks that may be defined as NLP problems, we chose "**Keyword Extraction** on course KG" as our topic because <br>
 1. It provides the user of the system an intuitive and innovative approach to search other than retrieving the preferable result only when typing in the specific same words in the class name.
@@ -33,7 +46,7 @@ To the best of our knowledge, there are few published papers discussing this kin
 This study proposes a Multi-Objective Optimization model to maximize the information value for the course KG and minimize the redundant words to make the words on it truly keywords at the same time.
 
 ## 2. Methodology
-### 2.1 Research framework
+### 2.1 Research Framework
 Our research framework involves several key steps. Initially, we collect documents, including their titles and contents, through web crawling. Subsequently, we preprocess these documents to prepare them for analysis and then feed the relevant information into our Multi-Objective Optimization model. The final output of our framework consists of critical words extracted from the documents, which are then used to construct a comprehensive knowledge graph. In essence, our project leverages OR for information extraction, ultimately contributing to the construction of a knowledge graph.
 
 <img src="framework.png" alt="image" width="600">
@@ -42,7 +55,7 @@ Note that the collected documents should include the titles and contents, which,
 
 <img src="example_of_elements.png" alt="image" width="300">
 
-### 2.2 Document pre-processing
+### 2.2 Document Pre-Processing
 The document preprocessing techniques are utilized first to simplify texts and help reduce the modeling complexity, which can further improve the modeling efficiency and reduce noise.
 
 **Translate into English**
@@ -70,12 +83,12 @@ The document preprocessing techniques are utilized first to simplify texts and h
 -    `from gensim.models import Word2Vec`
 `model = Word2Vec(....)`
 
-### 2.3 Solver:
+### 2.3 Solver
 We opted for the Gurobi solver, acknowledging two limitations that need to be addressed during the model formulation:
 -   Gurobi can only solve quadratic or lower-degree programming.
 -   The denominator should be a constant, not a variable.
 
-### 2.4 Model formulation
+### 2.4 Model Formulation
 **Sets and indices**
 -   $I$: unique words
 -   $i$ or $k$: a certain word
@@ -129,7 +142,7 @@ For similarity, here we use the cosine similarity and the Minkowski distance, we
     -   $idf_{i} = \ln (B_{i}), \forall i \in I$
     -   $X_{ik} = x_{i} x_{k}, \forall i \in I, k \in I, i \neq k$
 
-### 2.5 Multi-objective optimization
+### 2.5 Multi-Objective Optimization
 Several methods for solving multi-objective problems have been explored in past literature. In this study, we adopt the 'Weighted-Sum Method' to integrate our three objectives and approach the problem as a single-objective problem.
 
 -   Weights of the objectives are $w^{tfidf}$, $w^{wordnum}$, $w^{sim}$, with $w^{tfidf} + w^{wordnum} + w^{sim} =1$
@@ -147,9 +160,9 @@ It aims to reduce the digression between objective functions and their ideal sol
 
 Note that in this case, we normalize the three objectives, making the Weighted-Sum Method and Lp-Metric Method essentially equivalent.
 
-## 3. Case study, Modules and Analysis Result
+## 3. Case Study, Modules and Analysis Result
 
-### 3.1 Case study: links between NTU IM courses
+### 3.1 Case Study: Links between NTU IM Courses
 We conducted a case study on the links between courses at National Taiwan University (NTU). We identified certain existing limitations in the course overviews, including a scarcity of prerequisite relationships between courses. This lack of detailed information poses challenges for students seeking to study across different fields and disciplines.
 
 Our research is aimed at addressing these limitations by constructing knowledge graphs for courses within the National Taiwan University's Institute of Information Management (NTU IM). This initiative holds several benefits, such as facilitating the development of a search engine tailored to course information. Additionally, it aids students in comprehending their learning trajectories and provides clarity on cross-disciplinary learning paths.
@@ -174,14 +187,14 @@ Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data 
 
 ## 4. Conclusion
 
-### 4.1 Comments and insights
+### 4.1 Comments and Insights
 To summarize our method, we utilize OR method to build KG in the NLP problem
 
 ### 4.2 Limitations
 -    Size limit of Gurobi solver: Our method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
 -    Absence of fixed solution: We've observed that there is no fixed solution in our approach. Gurobi may find local optimal solutions, raising concerns about achieving the global optimum.
 
-### 4.3 Future work
+### 4.3 Future Work
 -    Perform clustering of similar words: To reduce the complexity of the model so that this methodology can be utilized to build a larger knowledge graph.
 -    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, and more experiments are needed.
 
