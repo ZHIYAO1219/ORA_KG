@@ -129,7 +129,7 @@ For similarity, here we use the cosine similarity and the Minkowski distance, we
 
 **Constraints**
 -   Choose at least $|J|$ words, meaning that the number of chosen words not less than the number of documents: $\sum_{i \in I} x_{i} \geq |J|$
--   Only keep words that can connect different documents to help build the knowledge graph of courses (here we set this constraint as optional since the connecting samples are very limited):
+-   Only keep words that can connect different documents to help build the knowledge graph of courses (here we set this constraint as optional since the connecting words are very limited):
     $t_{i} \geq x_{i}, \forall i \in I$
 -   Constraints that form the objective function:
     -   $obj^{tfidf} = \sum_{i \in I, j \in J} tf_{ij} idf_{i}$
@@ -191,12 +191,13 @@ Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data 
 To summarize our method, we utilize OR method to build KG in the NLP problem
 
 ### 4.2 Limitations
--    Size limit of Gurobi solver: Our method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
--    Absence of fixed solution: We've observed that there is no fixed solution in our approach. Gurobi may find local optimal solutions, raising concerns about achieving the global optimum.
+-    Size limit of the Gurobi solver: this method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
+-    Absence of fixed solution: we've observed that there is no fixed solution in our approach. Gurobi may find local optimal solutions, raising concerns about achieving the global optimum.
+-    A limited number of connecting words across different courses: there is insufficient diversity in connecting words due to the data size limit. As a result, the objective of establishing a comprehensive knowledge map between courses cannot be fully realized.
 
 ### 4.3 Future Work
--    Perform clustering of similar words: To reduce the complexity of the model so that this methodology can be utilized to build a larger knowledge graph.
--    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, and more experiments are needed.
+-    Perform clustering of similar words: cluster the similar words can help reduce the complexity of the model, so that our methodology can be utilized to build a larger and more comprehensive knowledge graph.
+-    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, so more experiments are needed.
 
 ## 5. Reference
 -    [Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
