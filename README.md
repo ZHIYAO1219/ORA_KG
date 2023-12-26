@@ -160,6 +160,15 @@ To simplify the problem, we have selected three courses, and gathered the names 
 
 ## 4. Conclusion
 
+### 4.1 Comments and insights
+To summarize our method, we utilize OR method to build KG in the NLP problem
+
+### 4.2 Limitations
+-    Size limit of Gurobi solver: Our method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
+-    Absence of fixed solution: We've observed that there is no fixed solution in our approach. Gurobi may find local optimal solutions, raising concerns about achieving the global optimum.
+-    Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
+
+
 ## 5. Reference
 [Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
 
