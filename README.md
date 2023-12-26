@@ -57,7 +57,7 @@ Note that the collected documents should include the titles and contents, which,
 
 ### 2.2 Document Pre-Processing
 #### 2.2.1 Supplementary module 
-##### 2.2.1.1crawler module
+##### 2.2.1.1 Crawler module
 In our project, we have to obtain all of the course data from the website first.<br>
 It is a tool developed with selenium, an web browser automation tool that can help us interact with website by code, and beautiful soup, a classic crawling tool that is intuitive and relatively easy to use. 
 In Crawler.ipynb you can input a desirable department ID to our function crawlByDepId(depId) and it will give you a csv file with all of the classes' "ClassId", "ClassName" and "ClassSummary"<br>
