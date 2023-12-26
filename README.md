@@ -217,7 +217,7 @@ Here are the results without limitations on chosen words, indicating that we are
 -    The challenge in successfully establishing a robust knowledge graph lies in the insufficient presence of connecting words between courses, and their lack of representativeness. Hence, focusing on information extraction of representative connecting words between documents is recommended for future development.
 
 ### 4.2 Limitations
-Size limit of the Gurobi solver: this method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size. 
+Size limit of the Gurobi solver: this method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size. <br>
 Which may bring about 3 main shortcomings…
 1.	A limitation to our solution capability. In our case study example, there are only three classes. Therefore, even the normal words to courses like “achieve” or “discussion” may stand out owing to the limited number of courses. E.g., if there are 50 courses, the probability we see those normal words is tremendous and the model cuts down the importance of those words. However, within three courses, there might be only one occurrence, which makes the word as crucial as words like “Operations research” or “Data science”.
 2.	A limited number of connecting words across different courses: there is insufficient diversity in connecting words due to the data size limit. As a result, the objective of establishing a comprehensive knowledge map between courses cannot be fully realized.
