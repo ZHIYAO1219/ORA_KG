@@ -17,7 +17,7 @@ Those modules and our model will be introduced in the following article. **Multi
 ## Table of Contents
 1. Introduction
 2. Methodology
-3. Data collention, prerocessing and Analysis Result
+3. Case study, Modules and Analysis Result
 4. Conclusion
 5. Reference
 
@@ -141,7 +141,7 @@ Several methods for solving multi-objective problems have been explored in past 
 
 Note that in this case, we normalize the three objectives, making the Weighted-Sum Method and Lp-Metric Method essentially equivalent.
 
-## 3. Data collention, prerocessing and Analysis Result
+## 3. Case study, Modules and Analysis Result
 
 ### 3.1 Case study: links between NTU IM courses
 We conducted a case study on the links between courses at National Taiwan University (NTU). We identified certain existing limitations in the course overviews, including a scarcity of prerequisite relationships between courses. This lack of detailed information poses challenges for students seeking to study across different fields and disciplines.
@@ -154,9 +154,14 @@ To simplify the problem, we have selected three courses, and gathered the names 
 3.    Web Application Programming
 
 
-### 3.2 crawler module 
-### 3.3 preprocessing module** 
-### 3.4 n-gram module
+### 3.2 Modules
+**crawler module**
+
+**preprocessing module**
+
+**n-gram module**
+
+### 3.3 Result
 
 ## 4. Conclusion
 
