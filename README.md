@@ -4,7 +4,7 @@
 This is a project exploring the potential of applying Operations Research (OR) techniques to address Natural Language Processing (NLP) problems. The research objective is focused on 'shrinking the Knowledge Graph (KG) of courses and summarizing course keywords through Multi-Objective Optimization.'
 
 ## A preview of our project <br>
-There is a bunch of class info on the NTU course website. For example, here is the course information for 'Operations Research Applications and Implementation'.
+There is a bunch of class info on the NTU course website. For example, here is the course information of 'Operations Research Applications and Implementation'.
 
 <img src="https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/6c722101-94b5-40e2-9797-45d94c58f1be" alt="image" width="550">
 <img src="https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/ca40a7c6-77f3-4caf-b8d2-34a87121a697" alt="image" width="550">
