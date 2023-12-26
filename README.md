@@ -96,8 +96,10 @@ $w^{tfidf} + w^{wordnum} + w^{sim} =1$
 -   Weighted-Sum method
     $$w^{tfidf} \frac{obj^{tfidf}}{obj^{tfidf, max}} + w^{wordnum} \frac{obj^{wordnum}}{obj^{wordnum, max}} + w^{sim} \frac{obj^{sim}}{obj^{sim, max}}$$
 
-## 3. Data collention and Analysis Result
-
+## 3. Data collention, prerocessing and Analysis Result
+### 3.1. crawler module 
+### 3.2. preprocessing module** 
+### 3.3. n-gram module
 
 
 
