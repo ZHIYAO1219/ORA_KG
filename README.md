@@ -15,25 +15,35 @@ As we can see, there are lots of redundent words, such as 'student', and 'learn'
 Those modules and our model will be introduced in the following article. **Multi-Objective Optimization model** will be presented in Chapter 2. The supplementary function, such as **crawler module**, **preprocessing module**, **n-gram module**, will be demonstrated in Chapter 3.
 
 ## Table of Contents
-1. Background and Motivation
+1. Introduction
 2. Methodology
-3. Case study: links between NTU courses
-4. Conclusion
-5. Reference
+3. Data collention, prerocessing and Analysis Result
+4. Case study: links between NTU courses
+5. Conclusion
+6. Reference
 
 ## 1. Background and Motivation
+### 1.1 Background and Motivation
 To the best of our knowledge, there are few published papers discussing this kind of topic utilizing operations research techniques on NLP problems. Therefore, we are interested in how these directions would evolve. There are tons of tasks that may be defined as NLP problems, we chose "**Keyword Extraction** on course KG" as our topic because <br>
 1. It provides the user of the system an intuitive and innovative approach to search other than retrieving the preferable result only when typing in the specific same words in the class name.
 2. It provides an automatic way to show the keywords for the classes, further making the browsing process more efficient.<br>
 
+### 1.2 Problem Definition
+This study proposes a Multi-Objective Optimization model to maximize the information value for the course KG and minimize the redundant words to make the words on it truly keywords at the same time.
+
 ## 2. Methodology
-### 2.1 Problem Definition
-This study proposes a Multi-Objective Optimization model to maximize the information value for the course KG and minimize the redundant words to make the words on it truly keywords at the same time. Additionally, we opted for the Gurobi solver, acknowledging two limitations that need to be addressed during the model formulation:
+### 2.1 Research framework
+Our research framework involves several key steps. Initially, we collect documents, including their titles and contents, through web crawling. Subsequently, we preprocess these documents to prepare them for analysis, and then feed the relevant information into our Multi-Objective Optimization model. The final output of our framework consists of critical words extracted from the documents, which are then used to construct a comprehensive knowledge graph. In essence, our project leverages OR for information extraction, ultimately contributing to the construction of a knowledge graph.
+
+<img src="framework.png" alt="image" width="500">
+<img src="example_of_elements.png" alt="image" width="300">
+
+### 2.2 Solver:
+We opted for the Gurobi solver, acknowledging two limitations that need to be addressed during the model formulation:
 -   It can only solve quadratic programming.
 -   The denominator cannot be a variable.
 
-## 2.2 Model formulation
-**Sets and indices**
+### 2.3 Model formulation**Sets and indices**
 -   $I$: unique words
 -   $i$ or $k$: a certain word
 -   $\mathbf{i}$ or $\mathbf{k}$: a certain word vector
@@ -101,6 +111,11 @@ $w^{tfidf} + w^{wordnum} + w^{sim} =1$
 ### 3.2. preprocessing module** 
 ### 3.3. n-gram module
 
+## 4. Case study: links between NTU courses
+## 5. Conclusion
+
+## 6. Reference
+[Disaster Relief Logistics with Contactless Delivery Policy](https://github.com/Nana2929/ORA-modrl)
 
 
 
