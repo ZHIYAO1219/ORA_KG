@@ -168,6 +168,7 @@ To simplify the problem, we have selected three courses, and gathered the names 
 **preprocessing module**
 
 **n-gram module**
+Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
 
 ### 3.3 Result
 
@@ -179,11 +180,18 @@ To summarize our method, we utilize OR method to build KG in the NLP problem
 ### 4.2 Limitations
 -    Size limit of Gurobi solver: Our method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
 -    Absence of fixed solution: We've observed that there is no fixed solution in our approach. Gurobi may find local optimal solutions, raising concerns about achieving the global optimum.
--    Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
 
+### 4.3 Future work
+-    Perform clustering of similar words: To reduce the complexity of the model so that this methodology can be utilized to build a larger knowledge graph.
+-    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, and more experiments are needed.
 
 ## 5. Reference
 [Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
+[Text correlation calculation based on passage-level event representation](https://www.researchgate.net/publication/343101905_Text_correlation_calculation_based_on_passage-level_event_representation)
+[Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph](https://aclanthology.org/C18-1229/)
+[Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity](https://zenodo.org/records/4437871#.YB0oa-gzaUk)
+
+
 
 
 
