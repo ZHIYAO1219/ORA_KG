@@ -18,7 +18,7 @@ Those modules and our model will be introduced in the following article. **Multi
 
 ## Table of Contents
 1.    Introduction <br>
-    1.1    Background and Motivation <br>
+    1.1    [Background and Motivation](#background-and-motivation) <br>
     1.2    Problem Definition <br>
 2.    Methodology <br>
     2.1    Research Framework <br>
