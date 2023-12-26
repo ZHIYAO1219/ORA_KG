@@ -1,4 +1,6 @@
 # Textual Knowledge Graph Construction based on Operations Research
+**`December 26, 2023 / by Yu-Shin, Hu and Zhi-Yao, Hsu`**
+
 This is a project exploring the potential of applying Operations Research (OR) techniques to address Natural Language Processing (NLP) problems. The research objective is focused on 'shrinking the Knowledge Graph (KG) of courses and summarizing course keywords through Multi-Objective Optimization.'
 
 ## A preview of our project <br>
