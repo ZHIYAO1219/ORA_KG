@@ -61,22 +61,22 @@ Note that the collected documents should include the titles and contents, which,
 **Crawler module**
 
 In our project, we have to obtain all of the course data from the website first.<br>
-It is a tool developed with selenium, an web browser automation tool that can help us interact with website by code, and beautiful soup, a classic crawling tool that is intuitive and relatively easy to use. 
+It is a tool developed with Selenium, a web browser automation tool that can help us interact with websites by code, and Beautiful Soup, a classic crawling tool that is intuitive and relatively easy to use. 
 In Crawler.ipynb you can input a desirable department ID to our function crawlByDepId(depId) and it will give you a csv file with all of the classes' "ClassId", "ClassName" and "ClassSummary"<br>
 
 **n-gram module**
 
 Sometimes, there words like 'machine learning' or 'data science' only convey their intended meaning when combined. Otherwise, they fail to communicate the true concept.
-We have two basic way to solve this problem. 
-1. Using n-gram method, which help you find the frequency ranking of n consecutive words in the text you are interested in. For example, after preprocessing, we put text from a blog of data science to n-gram function. Then, we get ['artificial intelligence', 'machine learning', 'big data', 'deep learning', ...] which can alse be seem as the most popular word in this topic.
-2. Asking chatGPT which are the most popular world in certain topic. For example, we ask chatGPT: "Give me top 24 keywords in the field Operations research." and we get ['Linear Programming', 'Inventory Management', 'Stochastic Processes', 'Decision Analysis'...].<br><br>
-We put our 2-gram example in dictionary.pickle. With this dictionary we can tell which words pair should be together rather than be seperated arbitrary.
+We have two basic ways to solve this problem. 
+1. Using the n-gram method, which helps you find the frequency ranking of n consecutive words in the text you are interested in. For example, after preprocessing, we put text from a blog of data science to the n-gram function. Then, we get ['artificial intelligence', 'machine learning', 'big data', 'deep learning', ...] which can also be seen as the most popular word in this topic.
+2. Asking chatGPT which is the most popular world in certain topics. For example, we ask chatGPT: "Give me the top 24 keywords in the field Operations research." and we get ['Linear Programming', 'Inventory Management', 'Stochastic Processes', 'Decision Analysis'...].<br><br>
+We put our 2-gram example in dictionary.pickle. With this dictionary, we can tell which words pair should be together rather than be separated arbitrarily.
 
 #### 2.2.2 Document Preprocessing
 The document preprocessing techniques are utilized first to simplify texts and help reduce the modeling complexity, which can further improve the modeling efficiency and reduce noise.
 
 **Translate into English**
--    All the documents are firstly translated into English form.
+-    All the documents are first translated into English form.
 -    `from googletrans import Translator`
 `translator = Translator()`
 
@@ -226,7 +226,7 @@ Here are the results without limitations on chosen words, indicating that we are
 
 ## 5. Reference
 -    Kong, ZY, How, BS, Mahmoud, A., & Sunarso, J. Multi-objective Optimization Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate. Process Integration and Optimization for Sustainability, volume 6, pages 845–862, (2022).
--    Text correlation calculation based on passage-level event representation. SCIENTIA SINICA Informationis, Volume 50, Issue 7: 1033 - 1054 (2020).
+-    Zihao Zheng, Yang LI, Yitong LIU, Bing QIN, Ming LIU. Text correlation calculation based on passage-level event representation. SCIENTIA SINICA Informationis, Volume 50, Issue 7: 1033 - 1054 (2020).
 -    Dongsuk O, Sunjae Kwon, Kyungsun Kim, and Youngjoong Ko. 2018. Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph. In Proceedings of the 27th International Conference on Computational Linguistics, pages 2704–2714, Santa Fe, New Mexico, USA. Association for Computational Linguistics.
 -    Kwon, Sunjae, O, Dongsuk, Ko, Youngjoong. Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity. Information Processing & Management, 58(4), 2018.
 -    ZHONG Weifeng, YANG Hang, CHEN Yubo, LIU Kang, ZHAO Jun. Document-level Event Extraction Based on Joint Labeling and Global Reasoning. Journal of Chinese Information Processing, 2019, Vol. 33.
