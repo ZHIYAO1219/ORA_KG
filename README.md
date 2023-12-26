@@ -33,11 +33,11 @@ This study proposes a Multi-Objective Optimization model to maximize the informa
 
 ## 2. Methodology
 ### 2.1 Research framework
-Our research framework involves several key steps. Initially, we collect documents, including their titles and contents, through web crawling. Subsequently, we preprocess these documents to prepare them for analysis, and then feed the relevant information into our Multi-Objective Optimization model. The final output of our framework consists of critical words extracted from the documents, which are then used to construct a comprehensive knowledge graph. In essence, our project leverages OR for information extraction, ultimately contributing to the construction of a knowledge graph.
+Our research framework involves several key steps. Initially, we collect documents, including their titles and contents, through web crawling. Subsequently, we preprocess these documents to prepare them for analysis and then feed the relevant information into our Multi-Objective Optimization model. The final output of our framework consists of critical words extracted from the documents, which are then used to construct a comprehensive knowledge graph. In essence, our project leverages OR for information extraction, ultimately contributing to the construction of a knowledge graph.
 
 <img src="framework.png" alt="image" width="600">
 
-Note that the collected documents should include the titles and contents. Titles and keywords of contents represent the 'Entity' of a knowledge graph.
+Note that the collected documents should include the titles and contents, which, in this study, refer to the course names and their corresponding course summaries. Titles and keywords of contents represent the 'entity' of a knowledge graph.
 
 <img src="example_of_elements.png" alt="image" width="300">
 
@@ -45,17 +45,17 @@ Note that the collected documents should include the titles and contents. Titles
 The document preprocessing techniques are utilized first to simplify texts and help reduce the modeling complexity, which can further improve the modeling efficiency and reduce noise.
 
 **Translate into English**
--    Description: all the documents are firstly translated into English form.
+-    All the documents are firstly translated into English form.
 -    `from googletrans import Translator`
 `translator = Translator()`
 
 **Stemming**
--    Description: we convert the words to the same basic form, in order to reduce vocabulary diversity.
+-    We convert the words to the same basic form, in order to reduce vocabulary diversity.
 -    `import nltk`
 `stemmer = stem.PorterStemmer()`
 
 **Remove stopwords**
--    Description: we remove stopwords such as Preposition, Pronouns, or Auxiliary Verbs, etc.
+-    We remove stopwords such as Preposition, Pronouns, or Auxiliary Verbs, etc.
 -    `import nltk`
 `nltk.download('stopwords')`
 `stop_words = set(stopwords.words('english'))`
@@ -65,7 +65,7 @@ The document preprocessing techniques are utilized first to simplify texts and h
 `string.punctuation`
 
 **Compute word vector**
--    Description: all the words are converted into vector space using Word2Vector, which is a Word Embedding method and helps us consider the semantic representation and contextual relationships.
+-    All the words are converted into vector space using Word2Vector, which is a Word Embedding method and helps us consider the semantic representation and contextual relationships.
 -    `from gensim.models import Word2Vec`
 `model = Word2Vec(....)`
 
@@ -100,26 +100,20 @@ We opted for the Gurobi solver, acknowledging two limitations that need to be ad
     -   $X_{ik}$
 
 **Objectives and formulas**
--   $obj^{tfidf}$: maximize total TFIDF, to maximize the information of
-    the whole graph.
-    -   TFIDF:
-    $$TF_{ij} = \frac{a_{ij} x_{i}}{\sum_{i' \in I}{a_{i'j} x_{i'}}}$$
-    $$IDF_{i} = \ln \frac{|j|}{1 + \sum_{j' \in J}{b_{ij'} x_{i}}}$$
-    $$TFIDF_{ij} = \frac{a_{ij} x_{i}}{\sum_{i' \in I}{a_{i'j} x_{i'}}} \ln \frac{|j|}{1 + \sum_{j' \in J}{b_{ij'} x_{i}}}$$
-
--   $obj^{wordnum}$: minimize the number of chosen words, to minimize
-    the nodes that need to be compared with the query to speed up the
-    information-searching process.
--   $obj^{sim}$: minimize the sum of word similarities, to maximize the
-    information value.
-    -   Cosine similarity:
-    $$s_{ik} = {similarity}(\mathbf{i}, \mathbf{k}) = \frac{\mathbf{i} \cdot \mathbf{k}}{\|\mathbf{i}\| \cdot \|\mathbf{k}\|}$$
-    -   Minkowski distance:
-    $$s_{ik} = D(\mathbf{i}, \mathbf{k}) = \left( \sum_{m} \left| i_m - k_m \right|^p \right)^{\frac{1}{p}}$$
+-   $obj^{tfidf}$: maximize total TFIDF which is an indicator of the word importance in the documents, so as to maximize the chosen word importance of the whole knowledge graph.
+$$TF_{ij} = \frac{a_{ij} x_{i}}{\sum_{i' \in I}{a_{i'j} x_{i'}}}$$
+$$IDF_{i} = \ln \frac{|j|}{1 + \sum_{j' \in J}{b_{ij'} x_{i}}}$$
+$$TFIDF_{ij} = \frac{a_{ij} x_{i}}{\sum_{i' \in I}{a_{i'j} x_{i'}}} \ln \frac{|j|}{1 + \sum_{j' \in J}{b_{ij'} x_{i}}}$$
+TF stands for term frequency, indicating the frequency with which a given word $i$ appears in document $j$. IDF, or inverse document frequency, represents the frequency with which a word $i$ appears in the entire collection of documents. A word with a high TF is deemed more important in a specific document, while a high IDF suggests that the word may be too common and less significant. Therefore, TF-IDF is calculated by multiplying these two indices to strike a balance, providing a measure of a word's importance across the entire set of documents.
+-   $obj^{wordnum}$: minimize the number of chosen words, to minimize the nodes that need to be compared with the query to speed up the information-searching process.
+-   $obj^{sim}$: minimize the sum of word similarities, to maximize the information value.
+    -    Cosine similarity: $$s_{ik} = {similarity}(\mathbf{i}, \mathbf{k}) = \frac{\mathbf{i} \cdot \mathbf{k}}{\|\mathbf{i}\| \cdot \|\mathbf{k}\|}$$
+    -    Minkowski distance: $$s_{ik} = D(\mathbf{i}, \mathbf{k}) = \left( \sum_{m} \left| i_m - k_m \right|^p \right)^{\frac{1}{p}}$$
+For similarity, here we use the cosine similarity and the Minkowski distance, we’ll presents the different results later. Note that here we choose $p$ to be 2, corresponding to the Euclidean distance.
 
 **Constraints**
--   Choose at least $|J|$ words: $\sum_{i \in I} x_{i} \geq |J|$
--   Only keep words that can connect different documents (we set this constraint as optional since the connecting samples are very limited):
+-   Choose at least $|J|$ words, meaning that the number of chosen words not less than the number of documents: $\sum_{i \in I} x_{i} \geq |J|$
+-   Only keep words that can connect different documents to help build the knowledge graph of courses (here we set this constraint as optional since the connecting samples are very limited):
     $t_{i} \geq x_{i}, \forall i \in I$
 -   Constraints that form the objective function:
     -   $obj^{tfidf} = \sum_{i \in I, j \in J} tf_{ij} idf_{i}$
