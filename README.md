@@ -24,6 +24,10 @@ Those modules and our model will be introduced in Chapter 2.
 2.    Methodology <br>
     2.1    Research Framework <br>
     2.2    Document Pre-Processing <br>
+        2.2.1 Supplementary module<br> 
+            2.2.1.1 Crawler module<br>
+            2.2.1.2 n-gram module<br>
+        2.2.2 Document Preprocessing<br>
     2.3    Solver <br>
     2.4    Model Formulation <br>
     2.5    Multi-Objective Optimization <br>
