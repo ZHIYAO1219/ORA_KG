@@ -12,7 +12,7 @@ There is a bunch of class info on the NTU course website. For example, here is t
 Firstly, we can crawl the courses' names and the corresponding text easily through our **crawler module**. <br>
 
 Next, leveraging our **preprocessing module**, we can tokenize the introduction text of the courses. In our example, there will be a list, which may seem like ['student', 'learn', 'methodology', **'operations research'**[1], application,...]. We consider these words as keywords, or having a relationship --"represent"-> to the course on course KG.<br>
-[1]How we tokenize words like 'operation research' other than single words will be explained in **n-gram module**.<br>
+[1]How we tokenize words like 'operations research' other than single words will be explained in **n-gram module**.<br>
 
 As we can see, there are lots of redundent words, such as 'student', and 'learn', if we are discussing **"keywords"** of a course. We introduce our **Multi-Objective Optimization model** to explore another approach to replace traditional **Keyword Extraction** methods.<br>
 
