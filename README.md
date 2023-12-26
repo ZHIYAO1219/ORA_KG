@@ -225,8 +225,9 @@ Here are the results without limitations on chosen words, indicating that we are
 -    Explore additional text-related metrics and experiment with different weight configurations: the significance of each factor in constructing an effective knowledge graph is still uncertain, so more experiments are needed.
 
 ## 5. Reference
--    [Multi-objective Optimisation Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate](https://link.springer.com/article/10.1007/s41660-022-00247-1)
--    [Text correlation calculation based on passage-level event representation](https://www.researchgate.net/publication/343101905_Text_correlation_calculation_based_on_passage-level_event_representation)
--    [Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph](https://aclanthology.org/C18-1229/)
--    [Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity](https://zenodo.org/records/4437871#.YB0oa-gzaUk)
+-    Kong, ZY, How, BS, Mahmoud, A., & Sunarso, J. Multi-objective Optimization Using Fuzzy and Weighted Sum Approach for Natural Gas Dehydration with Consideration of Regional Climate. Process Integration and Optimization for Sustainability, volume 6, pages 845–862, (2022).
+-    Text correlation calculation based on passage-level event representation. SCIENTIA SINICA Informationis, Volume 50, Issue 7: 1033 - 1054 (2020).
+-    Dongsuk O, Sunjae Kwon, Kyungsun Kim, and Youngjoong Ko. 2018. Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph. In Proceedings of the 27th International Conference on Computational Linguistics, pages 2704–2714, Santa Fe, New Mexico, USA. Association for Computational Linguistics.
+-    Kwon, Sunjae, O, Dongsuk, Ko, Youngjoong. Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity. Information Processing & Management, 58(4), 2018.
+-    ZHONG Weifeng, YANG Hang, CHEN Yubo, LIU Kang, ZHAO Jun. Document-level Event Extraction Based on Joint Labeling and Global Reasoning. Journal of Chinese Information Processing, 2019, Vol. 33.
 
