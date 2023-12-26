@@ -4,11 +4,12 @@
 This is a project exploring the potential of applying Operations Research (OR) techniques to address Natural Language Processing (NLP) problems. The research objective is focused on 'shrinking the Knowledge Graph (KG) of courses and summarizing course keywords through Multi-Objective Optimization.'
 
 ## A preview of our project <br>
-There is a bunch of class info on the NTU course website. A case and a point,
-![image](https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/6c722101-94b5-40e2-9797-45d94c58f1be)
-![image](https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/ca40a7c6-77f3-4caf-b8d2-34a87121a697)
-We can crawl the courses' names and the corresponding text easily through our **crawler module**.
-<br>
+There is a bunch of class info on the NTU course website. For example, here is the course information for 'Operations Research Applications and Implementation'.
+
+<img src="https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/6c722101-94b5-40e2-9797-45d94c58f1be" alt="image" width="550">
+<img src="https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/ca40a7c6-77f3-4caf-b8d2-34a87121a697" alt="image" width="550">
+
+Firstly, we can crawl the courses' names and the corresponding text easily through our **crawler module**. <br>
 
 Next, leveraging our **preprocessing module**, we can tokenize the introduction text of the courses. In our example, there will be a list, which may seem like ['student', 'learn', 'methodology', **'operations research'**[1], application,...]. We consider these words as keywords, or having a relationship --"represent"-> to the course on course KG.<br>
 [1]How we tokenize words like 'operation research' other than single words will be explained in **n-gram module**.<br>
@@ -124,9 +125,9 @@ TF stands for term frequency, indicating the frequency with which a given word $
 -   $obj^{wordnum}$: minimize the number of chosen words, to minimize the nodes that need to be compared with the query to speed up the information-searching process.
   
 -   $obj^{sim}$: minimize the sum of word similarities, to maximize the information value.
-    -    Cosine similarity: $$s_{ik} = {similarity}(\mathbf{i}, \mathbf{k}) = \frac{\mathbf{i} \cdot \mathbf{k}}{\|\mathbf{i}\| \cdot \|\mathbf{k}\|}$$
+    -    Cosine similarity: $$s_{ik} = 1+{similarity}(\mathbf{i}, \mathbf{k}) = 1+\frac{\mathbf{i} \cdot \mathbf{k}}{\|\mathbf{i}\| \cdot \|\mathbf{k}\|}$$
     -    Minkowski distance: $$s_{ik} = D(\mathbf{i}, \mathbf{k}) = \left( \sum_{m} \left| i_m - k_m \right|^p \right)^{\frac{1}{p}}$$
-For similarity, here we use the cosine similarity and the Minkowski distance, we’ll presents the different results later. Note that here we choose $p$ to be 2, corresponding to the Euclidean distance.
+For similarity, here we try the cosine similarity and the Minkowski distance, their results surprisingly come out the same. Note that 1 is added to the cosine similarity to avoid the negative value; we choose $p$ to be 2, corresponding to the Euclidean distance.
 
 **Constraints**
 -   Choose at least $|J|$ words, meaning that the number of chosen words not less than the number of documents: $\sum_{i \in I} x_{i} \geq |J|$
@@ -170,7 +171,7 @@ Our research is aimed at addressing these limitations by constructing knowledge 
 
 To simplify the problem, we have selected three courses, and gathered the names of the courses along with their respective course overviews to serve as our documents. It can be noted that only the first two are associated with prerequisites.
 
-|    | Name                                                | Overview                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Index | Name                                                | Overview                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |---:|:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  0 | Manufacturing Data Science                          | mds course supports students learning how to apply artificialIntelligence (ai), machineLearning, dataScience (ds) techniques to improve the effectiveness and efficiency of the manufacturing systems. mds integrates the knowledge domains of the information, engineering, and management. encourage students to solve the real problem systematically using the design of analytics, from descriptive, diagnostic, predictive, prescriptive to automating, for successfully enhancing decision quality.                                                                                                                                                                                                                                                                                                                                                    |
 |  1 | Operations Research Applications and Implementation | this course will provide students to learn the methodologies of operationsResearch and its applications to the real problem. the models include deterministic models (such as linearProgramming, multi-criteria decisionAnalysis, data envelopment analysis, etc.) and stochasticModels (such as bayesian decisionAnalysis, stochasticProgramming, markovDecision process, etc.). the course integrates the knowledge domains of the management and engineering, applied in capacity planning, facility layout, supply chain, manufacturing scheduling, performance evaluation, vendor selection and order allocation, bin-packing, financial investment, etc. we develop the implementation capability of the information system in practice. finally we should know how to solve the real problem systematically using optimization or statistical methods. |
@@ -185,6 +186,14 @@ To simplify the problem, we have selected three courses, and gathered the names 
 Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
 
 ### 3.3 Result
+
+**Result when only choose words that can connect different documents**
+<img src="cos_with_t.png" alt="image" width="850">
+<img src="eu_with_t.png" alt="image" width="850">
+
+**Result there is no such limitation for chosen words**
+<img src="cos_no_t.png" alt="image" width="850">
+<img src="eu_no_t.png" alt="image" width="850">
 
 ## 4. Conclusion
 
