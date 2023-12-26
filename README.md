@@ -70,7 +70,7 @@ Sometimes, there words like 'machine learning' or 'data science' only convey the
 We have two basic ways to solve this problem. 
 1. Using the n-gram method, which helps you find the frequency ranking of n consecutive words in the text you are interested in. For example, after preprocessing, we put text from a blog of data science to the n-gram function. Then, we get ['artificial intelligence', 'machine learning', 'big data', 'deep learning', ...] which can also be seen as the most popular word in this topic.
 2. Asking chatGPT which is the most popular world in certain topics. For example, we ask chatGPT: "Give me the top 24 keywords in the field Operations research." and we get ['Linear Programming', 'Inventory Management', 'Stochastic Processes', 'Decision Analysis'...].<br><br>
-We put our 2-gram example in dictionary.pickle. With this dictionary, we can tell which words pair should be together rather than be separated arbitrarily.
+We put our 2-gram example in **dictionary.pickle**. With this dictionary, we can tell which words pair should be together rather than be separated arbitrarily.
 
 #### 2.2.2 Document Preprocessing
 The document preprocessing techniques are utilized first to simplify texts and help reduce the modeling complexity, which can further improve the modeling efficiency and reduce noise.
