@@ -4,7 +4,7 @@
 This is a project exploring the potential of applying Operations Research (OR) techniques to address Natural Language Processing (NLP) problems. The research objective is focused on 'shrinking the Knowledge Graph (KG) of courses and summarizing course keywords through Multi-Objective Optimization.'
 
 ## A preview of our project <br>
-There is a bunch of class info on the NTU course website. For example, here is the course information of 'Operations Research Applications and Implementation'.
+There is a bunch of class info on the NTU course website. For example, here is the course information for 'Operations Research Applications and Implementation'.
 
 <img src="https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/6c722101-94b5-40e2-9797-45d94c58f1be" alt="image" width="550">
 <img src="https://github.com/ZHIYAO1219/ORA_KG/assets/45808654/ca40a7c6-77f3-4caf-b8d2-34a87121a697" alt="image" width="550">
@@ -12,9 +12,10 @@ There is a bunch of class info on the NTU course website. For example, here is t
 Firstly, we can crawl the courses' names and the corresponding text easily through our **crawler module**. <br>
 
 Next, leveraging our **preprocessing module**, we can tokenize the introduction text of the courses. In our example, there will be a list, which may seem like ['student', 'learn', 'methodology', **'operations research'**[1], application,...]. We consider these words as keywords, or having a relationship --"represent"-> to the course on course KG.<br>
-[1]How we tokenize words like 'operations research' other than single words will be explained in **n-gram module**.<br>
+[1]How we tokenize words like 'operation research' other than single words will be explained in **n-gram module**.<br>
 
 As we can see, there are lots of redundent words, such as 'student', and 'learn', if we are discussing **"keywords"** of a course. We introduce our **Multi-Objective Optimization model** to explore another approach to replace traditional **Keyword Extraction** methods.<br>
+Those modules and our model will be introduced in Chapter 2.
 
 ## Table of Contents
 1.    Introduction <br>
@@ -22,11 +23,7 @@ As we can see, there are lots of redundent words, such as 'student', and 'learn'
     1.2    Problem Definition <br>
 2.    Methodology <br>
     2.1    Research Framework <br>
-    2.2    Document Pre-Processing <br>
-        2.2.1 Supplementary module<br> 
-            2.2.1.1 Crawler module<br>
-            2.2.1.2 n-gram module<br>
-        2.2.2 Document Preprocessing<br>
+    2.2    Document Pre-Processing and Supplementary Modules <br>
     2.3    Solver <br>
     2.4    Model Formulation <br>
     2.5    Multi-Objective Optimization <br>
@@ -58,14 +55,17 @@ Note that the collected documents should include the titles and contents, which,
 
 <img src="example_of_elements.png" alt="image" width="300">
 
-### 2.2 Document Pre-Processing
-#### 2.2.1 Supplementary module 
-##### 2.2.1.1 Crawler module
+### 2.2 Document Pre-Processing and Supplementary Modules
+
+#### 2.2.1 Supplementary Modules 
+**Crawler module**
+
 In our project, we have to obtain all of the course data from the website first.<br>
 It is a tool developed with selenium, an web browser automation tool that can help us interact with website by code, and beautiful soup, a classic crawling tool that is intuitive and relatively easy to use. 
 In Crawler.ipynb you can input a desirable department ID to our function crawlByDepId(depId) and it will give you a csv file with all of the classes' "ClassId", "ClassName" and "ClassSummary"<br>
 
-##### 2.2.1.2 n-gram module
+**n-gram module**
+
 Sometimes, there words like 'machine learning' or 'data science' only convey their intended meaning when combined. Otherwise, they fail to communicate the true concept.
 We have two basic way to solve this problem. 
 1. Using n-gram method, which help you find the frequency ranking of n consecutive words in the text you are interested in. For example, after preprocessing, we put text from a blog of data science to n-gram function. Then, we get ['artificial intelligence', 'machine learning', 'big data', 'deep learning', ...] which can alse be seem as the most popular word in this topic.
@@ -99,6 +99,7 @@ The document preprocessing techniques are utilized first to simplify texts and h
 -    All the words are converted into vector space using Word2Vector, which is a Word Embedding method and helps us consider the semantic representation and contextual relationships.
 -    `from gensim.models import Word2Vec`
 `model = Word2Vec(....)`
+
 
 ### 2.3 Solver
 We opted for the Gurobi solver, acknowledging two limitations that need to be addressed during the model formulation:
@@ -197,19 +198,22 @@ Here are our results. The red dots represent courses; blue dots represent critic
 
 **Result when only choose words that can connect different documents**
 
-Upon closer inspection, we observed that the selected words may not be sufficiently representative or specific. This discrepancy led us to analyze the data further, revealing that the collected words are common and lack representativeness:
+Three courses are connected in the knowledge graph, enabling us to understand the connection between courses. However, upon closer inspection, we observed that the selected words may not be sufficiently representative or specific. This discrepancy led us to analyze the data further, revealing that all the connecting words of the three courses are actually limited, too common and lack representativeness:
 > systemat, student, learn, engin, solv, process, real, system, method, problem, manag, manufactur, applic, knowledg, appli, use, improv, cours, inform, domain, integr, effect, design
 
 <img src="cos_with_t.png" alt="image" width="850">
 
 **Result when there is no only-connecting-words limitation for chosen words**
 
+Here are the results without limitations on chosen words, indicating that we are not restricting the selection to words connecting different documents. The model has successfully identified representative keywords, with minimal inclusion of common words in the chosen set. This outcome is considered favorable in filtering unimportant words.
+
 <img src="cos_no_t.png" alt="image" width="850">
 
 ## 4. Conclusion
 
 ### 4.1 Comments and Insights
-To summarize our method, we utilize OR method to build KG in the NLP problem
+-    To give a summary of this project, the OR model is used to build KG in the NLP problem.
+-    An unexpected finding is that when altering the similarity calculation method, whether using cosine similarity or Euclidean distance, the model produced identical results.
 
 ### 4.2 Limitations
 -    Size limit of the Gurobi solver: this method faces a constraint related to the size limit of the Gurobi solver. This limitation hinders the construction of knowledge graphs beyond a certain size.
@@ -225,13 +229,4 @@ To summarize our method, we utilize OR method to build KG in the NLP problem
 -    [Text correlation calculation based on passage-level event representation](https://www.researchgate.net/publication/343101905_Text_correlation_calculation_based_on_passage-level_event_representation)
 -    [Word Sense Disambiguation Based on Word Similarity Calculation Using Word Vector Representation from a Knowledge-based Graph](https://aclanthology.org/C18-1229/)
 -    [Word Sense Disambiguation based on Context Selection using Knowledge-based Word Similarity](https://zenodo.org/records/4437871#.YB0oa-gzaUk)
-
-
-**crawler module**
-
-**preprocessing module**
-
-**n-gram module**
-Text preprocessing challenge: Some phrases, such as 'machine learning' or 'data science,' are divided into two words during text preprocessing. Addressing this challenge requires improvements in our text preprocessing methods to ensure the accurate handling of such phrases.
-
 
